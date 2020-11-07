@@ -1,0 +1,44 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'br.com.mbragariano'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+springBoot {
+	mainClassName = '${group}.scheduleadministratorapi.boot.ScheduleAdministratorApi'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Validation
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+	// Web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	//Lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	// Test
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
