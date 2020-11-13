@@ -6,7 +6,11 @@ plugins {
 
 group = 'br.com.mbragariano'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+
+java {
+	targetCompatibility = JavaVersion.VERSION_11
+	sourceCompatibility = JavaVersion.VERSION_11
+}
 
 springBoot {
 	mainClassName = '${group}.scheduleadministratorapi.boot.ScheduleAdministratorApi'
@@ -30,10 +34,11 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 	//Lombok
-	compileOnly 'org.projectlombok:lombok'
+	compile 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
 	// Test
+	testImplementation 'org.springframework.boot:spring-boot-starter-validation'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
