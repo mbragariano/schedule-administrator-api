@@ -11,6 +11,4 @@ public class ValidationUtilMessages {
 
     public String details;
 
-    public String developerMessage;
-
 }
