@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public abstract class BaseDomain {
 
-	private Long id;
+	private String id;
 
 }

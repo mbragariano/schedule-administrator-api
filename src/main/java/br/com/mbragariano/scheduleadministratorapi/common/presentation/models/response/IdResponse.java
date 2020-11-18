@@ -9,6 +9,6 @@ import lombok.Builder;
 public class IdResponse {
 
 	@JsonProperty
-	public Long id;
+	public String id;
 
 }

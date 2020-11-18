@@ -1,9 +1,11 @@
 package br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.handler;
 
+import br.com.mbragariano.scheduleadministratorapi.common.exceptions.DataBaseException;
 import br.com.mbragariano.scheduleadministratorapi.common.exceptions.DuplicatedEntityException;
 import br.com.mbragariano.scheduleadministratorapi.common.exceptions.EntityValidationException;
 import br.com.mbragariano.scheduleadministratorapi.common.exceptions.NotFoundEntityException;
 import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.mappers.BaseExceptionResponseMapper;
+import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.mappers.DataBaseExceptionResponseMapper;
 import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.mappers.EntityValidationExceptionResponseMapper;
 import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.model.response.BaseExceptionResponse;
 import org.springframework.http.HttpStatus;
@@ -14,6 +16,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 @RestControllerAdvice
 public class ApplicationRestExceptionHandler extends ResponseEntityExceptionHandler {
+
+	@ExceptionHandler(DataBaseException.class)
+	public ResponseEntity<BaseExceptionResponse> handleDataBaseException(final DataBaseException duplicatedEntityException) {
+		final var httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+
+		return ResponseEntity.status(httpStatus)
+			.body(DataBaseExceptionResponseMapper.mapToDataBaseExceptionResponse(duplicatedEntityException, httpStatus));
+	}
 
 	@ExceptionHandler(DuplicatedEntityException.class)
 	public ResponseEntity<BaseExceptionResponse> handleDuplicatedEntityException(final DuplicatedEntityException duplicatedEntityException) {
