@@ -3,7 +3,7 @@ package br.com.mbragariano.scheduleadministratorapi.common.persistence.gateways;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.domains.SpecialtyDomain;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.persistence.documents.SpecialtyDocument;
 
-public class SpecialtyDocumentGateway {
+public class CreateSpecialtyGateway {
 
 	public static SpecialtyDocument mapToSpecialtyDocument(final SpecialtyDomain specialtyDomain) {
 		return SpecialtyDocument.baseBuilder()
