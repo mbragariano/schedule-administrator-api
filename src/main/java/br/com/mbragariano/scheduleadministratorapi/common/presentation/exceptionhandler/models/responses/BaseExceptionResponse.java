@@ -1,4 +1,4 @@
-package br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.model.response;
+package br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.models.responses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

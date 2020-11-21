@@ -1,10 +1,8 @@
-package br.com.mbragariano.scheduleadministratorapi.modules.specialty.presentation.model.request;
+package br.com.mbragariano.scheduleadministratorapi.modules.specialty.presentation.models.requests;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
 
 @Builder
 @NoArgsConstructor

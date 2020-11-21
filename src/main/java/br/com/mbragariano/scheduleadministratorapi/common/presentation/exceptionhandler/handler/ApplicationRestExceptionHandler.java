@@ -7,7 +7,7 @@ import br.com.mbragariano.scheduleadministratorapi.common.exceptions.NotFoundEnt
 import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.mappers.BaseExceptionResponseMapper;
 import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.mappers.DataBaseExceptionResponseMapper;
 import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.mappers.EntityValidationExceptionResponseMapper;
-import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.model.response.BaseExceptionResponse;
+import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.models.responses.BaseExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

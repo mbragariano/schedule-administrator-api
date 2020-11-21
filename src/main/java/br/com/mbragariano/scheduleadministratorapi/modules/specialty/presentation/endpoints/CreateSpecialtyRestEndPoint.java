@@ -2,7 +2,7 @@ package br.com.mbragariano.scheduleadministratorapi.modules.specialty.presentati
 
 import br.com.mbragariano.scheduleadministratorapi.common.annotations.RestEndPoint;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.facades.CreateSpecialtyFacade;
-import br.com.mbragariano.scheduleadministratorapi.modules.specialty.presentation.model.request.CreateSpecialtyRequest;
+import br.com.mbragariano.scheduleadministratorapi.modules.specialty.presentation.models.requests.CreateSpecialtyRequest;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.presentation.presenters.CreateSpecialtyPresenter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

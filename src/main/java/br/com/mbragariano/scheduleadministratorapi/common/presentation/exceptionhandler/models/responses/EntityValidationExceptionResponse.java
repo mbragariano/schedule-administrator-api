@@ -1,10 +1,8 @@
-package br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.model.response;
+package br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.models.responses;
 
 import br.com.mbragariano.scheduleadministratorapi.common.exceptions.EntityValidationException.EntityValidation;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import org.springframework.http.HttpStatus;
 
 import java.util.Set;
 

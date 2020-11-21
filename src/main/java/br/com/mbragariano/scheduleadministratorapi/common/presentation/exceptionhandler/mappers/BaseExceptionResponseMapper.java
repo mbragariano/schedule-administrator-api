@@ -1,7 +1,7 @@
 package br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.mappers;
 
 import br.com.mbragariano.scheduleadministratorapi.common.exceptions.BaseException;
-import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.model.response.BaseExceptionResponse;
+import br.com.mbragariano.scheduleadministratorapi.common.presentation.exceptionhandler.models.responses.BaseExceptionResponse;
 import org.springframework.http.HttpStatus;
 
 public class BaseExceptionResponseMapper {

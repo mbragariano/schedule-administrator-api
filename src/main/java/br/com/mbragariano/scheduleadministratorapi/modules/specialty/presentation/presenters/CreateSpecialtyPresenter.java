@@ -1,7 +1,7 @@
 package br.com.mbragariano.scheduleadministratorapi.modules.specialty.presentation.presenters;
 
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.dtos.CreateSpecialtyDto;
-import br.com.mbragariano.scheduleadministratorapi.modules.specialty.presentation.model.request.CreateSpecialtyRequest;
+import br.com.mbragariano.scheduleadministratorapi.modules.specialty.presentation.models.requests.CreateSpecialtyRequest;
 
 public class CreateSpecialtyPresenter {
 
