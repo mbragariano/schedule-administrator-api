@@ -3,15 +3,12 @@ package br.com.mbragariano.scheduleadministratorapi.modules.specialty.persistenc
 import br.com.mbragariano.scheduleadministratorapi.common.annotations.Adapter;
 import br.com.mbragariano.scheduleadministratorapi.common.exceptions.DataBaseException;
 import br.com.mbragariano.scheduleadministratorapi.common.persistence.gateways.SpecialtyDocumentGateway;
-import br.com.mbragariano.scheduleadministratorapi.common.ports.MessageResolverPort;
 import br.com.mbragariano.scheduleadministratorapi.common.utils.messageresolver.MessageResolverUtil;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.domains.SpecialtyDomain;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.persistence.documents.SpecialtyDocument;
-import br.com.mbragariano.scheduleadministratorapi.modules.specialty.ports.SpecialtyRepositoryPort;
+import br.com.mbragariano.scheduleadministratorapi.modules.specialty.ports.SpecialtyRepositoryStorage;
 import com.mongodb.MongoException;
-import com.mongodb.MongoSocketException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -19,7 +16,7 @@ import org.springframework.data.mongodb.core.query.Query;
 
 @RequiredArgsConstructor
 @Adapter("specialtyMongoDbRepositoryAdapter")
-public class SpecialtyMongoDbRepositoryAdapter implements SpecialtyRepositoryPort {
+public class SpecialtyMongoDbStorage implements SpecialtyRepositoryStorage {
 
 	private final MongoTemplate mongoTemplate;
 

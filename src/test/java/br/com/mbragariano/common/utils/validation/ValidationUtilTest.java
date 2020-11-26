@@ -7,7 +7,7 @@ import br.com.mbragariano.scheduleadministratorapi.common.configurations.Message
 import br.com.mbragariano.scheduleadministratorapi.common.configurations.ValidatorConfiguration;
 import br.com.mbragariano.scheduleadministratorapi.common.exceptions.EntityValidationException;
 import br.com.mbragariano.scheduleadministratorapi.common.groups.Create;
-import br.com.mbragariano.scheduleadministratorapi.common.ports.MessageResolverPort;
+import br.com.mbragariano.scheduleadministratorapi.common.ports.MessageResolver;
 import br.com.mbragariano.scheduleadministratorapi.common.utils.validation.ValidationUtil;
 import br.com.mbragariano.scheduleadministratorapi.common.utils.validation.ValidationUtilMessages;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,13 +35,13 @@ public class ValidationUtilTest {
 	private Validator validator;
 
 	@Autowired
-	private MessageResolverPort messageResolverPort;
+	private MessageResolver messageResolver;
 
 	private ValidationUtil validationUtil;
 
 	@BeforeEach
 	public void beforeEach() {
-		this.validationUtil = new ValidationUtil(this.validator, this.messageResolverPort);
+		this.validationUtil = new ValidationUtil(this.validator, this.messageResolver);
 	}
 
 	@Test
