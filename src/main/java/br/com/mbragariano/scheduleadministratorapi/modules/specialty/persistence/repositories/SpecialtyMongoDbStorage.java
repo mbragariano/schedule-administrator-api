@@ -2,7 +2,7 @@ package br.com.mbragariano.scheduleadministratorapi.modules.specialty.persistenc
 
 import br.com.mbragariano.scheduleadministratorapi.common.annotations.Adapter;
 import br.com.mbragariano.scheduleadministratorapi.common.exceptions.DataBaseException;
-import br.com.mbragariano.scheduleadministratorapi.common.persistence.gateways.CreateSpecialtyGateway;
+import br.com.mbragariano.scheduleadministratorapi.modules.specialty.persistence.gateways.CreateSpecialtyGateway;
 import br.com.mbragariano.scheduleadministratorapi.common.utils.messageresolver.MessageResolverUtil;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.domains.SpecialtyDomain;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.persistence.documents.SpecialtyDocument;
