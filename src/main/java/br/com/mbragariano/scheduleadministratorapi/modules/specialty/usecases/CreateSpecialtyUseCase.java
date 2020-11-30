@@ -9,7 +9,7 @@ import br.com.mbragariano.scheduleadministratorapi.common.utils.validation.Valid
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.dtos.CreateSpecialtyDto;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.facades.CreateSpecialtyFacade;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.mappers.CreateSpecialtyMapper;
-import br.com.mbragariano.scheduleadministratorapi.modules.specialty.ports.SpecialtyRepositoryStorage;
+import br.com.mbragariano.scheduleadministratorapi.modules.specialty.ports.SpecialtyStorage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -19,10 +19,10 @@ public class CreateSpecialtyUseCase implements CreateSpecialtyFacade {
 
 	private final ValidationUtil validationUtil;
 
-	private final MessageResolverUtil messageResolverUtil;
+	@Qualifier("specialtyMongoDbStorage")
+	private final SpecialtyStorage specialtyStorage;
 
-	@Qualifier("specialtyMongoDbRepositoryAdapter")
-	private final SpecialtyRepositoryStorage specialtyRepositoryStorage;
+	private final MessageResolverUtil messageResolverUtil;
 
 	private final String VALIDATION_MESSAGE_CODE = "create-specialty-facade.entity-validation-exception.message";
 	private final String VALIDATION_DETAILS_CODE = "create-specialty-facade.entity-validation-exception.details";
@@ -32,7 +32,7 @@ public class CreateSpecialtyUseCase implements CreateSpecialtyFacade {
 
 	@Override
 	public void execute(final CreateSpecialtyDto createSpecialtyDto) {
-		final var existsByName = this.specialtyRepositoryStorage.existsByName(createSpecialtyDto.name);
+		final var existsByName = this.specialtyStorage.existsByName(createSpecialtyDto.name);
 
 		if (existsByName)
 			throw new DuplicatedEntityException(
@@ -45,7 +45,7 @@ public class CreateSpecialtyUseCase implements CreateSpecialtyFacade {
 
 		this.validationUtil.validate(specialtyDomain, new ValidationUtilMessages(VALIDATION_MESSAGE_CODE, VALIDATION_DETAILS_CODE), Create.class);
 
-		this.specialtyRepositoryStorage.create(specialtyDomain);
+		this.specialtyStorage.create(specialtyDomain);
 	}
 
 }

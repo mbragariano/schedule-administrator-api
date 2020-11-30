@@ -6,7 +6,7 @@ import br.com.mbragariano.scheduleadministratorapi.common.persistence.gateways.S
 import br.com.mbragariano.scheduleadministratorapi.common.utils.messageresolver.MessageResolverUtil;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.domains.SpecialtyDomain;
 import br.com.mbragariano.scheduleadministratorapi.modules.specialty.persistence.documents.SpecialtyDocument;
-import br.com.mbragariano.scheduleadministratorapi.modules.specialty.ports.SpecialtyRepositoryStorage;
+import br.com.mbragariano.scheduleadministratorapi.modules.specialty.ports.SpecialtyStorage;
 import com.mongodb.MongoException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataAccessException;
@@ -15,8 +15,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 @RequiredArgsConstructor
-@Adapter("specialtyMongoDbRepositoryAdapter")
-public class SpecialtyMongoDbStorage implements SpecialtyRepositoryStorage {
+@Adapter("specialtyMongoDbStorage")
+public class SpecialtyMongoDbStorage implements SpecialtyStorage {
 
 	private final MongoTemplate mongoTemplate;
 
