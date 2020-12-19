@@ -1,6 +1,6 @@
 package br.com.mbragariano.gobeautyapi.modules.specialty.presentation.presenters;
 
-import br.com.mbragariano.gobeautyapi.modules.specialty.domains.SpecialtyDomain;
+import br.com.mbragariano.gobeautyapi.modules.specialty.entities.SpecialtyEntity;
 import br.com.mbragariano.gobeautyapi.modules.specialty.presentation.models.responses.FindAllSpecialtiesResponse;
 
 import java.util.List;
@@ -9,15 +9,15 @@ import java.util.stream.Collectors;
 public class FindAllSpecialtiesPresenter {
 
 	public static List<FindAllSpecialtiesResponse> mapToFindAllSpecialtiesResponse(
-		final List<SpecialtyDomain> specialtyDomains
+		final List<SpecialtyEntity> specialtySpecialties
 	) {
-		return specialtyDomains.stream().map(FindAllSpecialtiesPresenter::mapToFindAllSpecialtiesResponse).collect(Collectors.toList());
+		return specialtySpecialties.stream().map(FindAllSpecialtiesPresenter::mapToFindAllSpecialtiesResponse).collect(Collectors.toList());
 	}
 
-	private static FindAllSpecialtiesResponse mapToFindAllSpecialtiesResponse(final SpecialtyDomain specialtyDomain) {
+	private static FindAllSpecialtiesResponse mapToFindAllSpecialtiesResponse(final SpecialtyEntity specialtyEntity) {
 		return FindAllSpecialtiesResponse.builder()
-			.id(specialtyDomain.getId())
-			.name(specialtyDomain.getName())
+			.id(specialtyEntity.getId())
+			.name(specialtyEntity.getName())
 			.build();
 	}
 

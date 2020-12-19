@@ -18,9 +18,9 @@ public class FindAllSpecialtiesEndPoint {
 
 	@GetMapping("/specialty")
 	public ResponseEntity<List<FindAllSpecialtiesResponse>> handle() {
-		final var specialtyDomains = this.findAllSpecialtiesFacade.execute();
+		final var specialtyEntities = this.findAllSpecialtiesFacade.execute();
 
-		return ResponseEntity.ok(FindAllSpecialtiesPresenter.mapToFindAllSpecialtiesResponse(specialtyDomains));
+		return ResponseEntity.ok(FindAllSpecialtiesPresenter.mapToFindAllSpecialtiesResponse(specialtyEntities));
 	}
 
 }

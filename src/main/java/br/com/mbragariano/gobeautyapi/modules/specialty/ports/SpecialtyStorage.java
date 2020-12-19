@@ -1,15 +1,15 @@
 package br.com.mbragariano.gobeautyapi.modules.specialty.ports;
 
-import br.com.mbragariano.gobeautyapi.modules.specialty.domains.SpecialtyDomain;
+import br.com.mbragariano.gobeautyapi.modules.specialty.entities.SpecialtyEntity;
 
 import java.util.List;
 
 public interface SpecialtyStorage {
 
-	List<SpecialtyDomain> findAll();
+	List<SpecialtyEntity> findAll();
 
 	Boolean existsByName(String name);
 
-	void create(SpecialtyDomain specialtyDomain);
+	void create(SpecialtyEntity specialtyEntity);
 
 }

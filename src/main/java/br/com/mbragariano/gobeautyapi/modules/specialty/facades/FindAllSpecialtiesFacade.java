@@ -1,11 +1,11 @@
 package br.com.mbragariano.gobeautyapi.modules.specialty.facades;
 
-import br.com.mbragariano.gobeautyapi.modules.specialty.domains.SpecialtyDomain;
+import br.com.mbragariano.gobeautyapi.modules.specialty.entities.SpecialtyEntity;
 
 import java.util.List;
 
 public interface FindAllSpecialtiesFacade {
 
-	List<SpecialtyDomain> execute();
+	List<SpecialtyEntity> execute();
 
 }

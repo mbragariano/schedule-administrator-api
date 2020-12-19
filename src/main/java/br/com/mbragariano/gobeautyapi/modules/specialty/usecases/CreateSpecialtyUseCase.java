@@ -41,11 +41,11 @@ public class CreateSpecialtyUseCase implements CreateSpecialtyFacade {
 				null
 			);
 
-		final var specialtyDomain = CreateSpecialtyMapper.mapToSpecialtyDomain(createSpecialtyDto);
+		final var specialtyEntity = CreateSpecialtyMapper.mapToSpecialtyEntity(createSpecialtyDto);
 
-		this.validationUtil.validate(specialtyDomain, new ValidationUtilMessages(VALIDATION_MESSAGE_CODE, VALIDATION_DETAILS_CODE), Create.class);
+		this.validationUtil.validate(specialtyEntity, new ValidationUtilMessages(VALIDATION_MESSAGE_CODE, VALIDATION_DETAILS_CODE), Create.class);
 
-		this.specialtyStorage.create(specialtyDomain);
+		this.specialtyStorage.create(specialtyEntity);
 	}
 
 }
