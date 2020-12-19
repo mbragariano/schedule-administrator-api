@@ -13,7 +13,7 @@ java {
 }
 
 springBoot {
-	mainClassName = 'br.com.mbragariano.scheduleadministratorapi.boot.ScheduleAdministratorApiApplication'
+	mainClassName = 'br.com.mbragariano.gobeautyapi.boot.GoBeautyApiApplication'
 }
 
 configurations {

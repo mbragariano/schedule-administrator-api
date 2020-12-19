@@ -3,4 +3,4 @@ server:
 
 spring:
   application:
-    name: schedule-administrator-api
+    name: go-beauty-api

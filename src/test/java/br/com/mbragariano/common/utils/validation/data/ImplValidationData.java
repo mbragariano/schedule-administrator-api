@@ -1,7 +1,6 @@
 package br.com.mbragariano.common.utils.validation.data;
 
-import br.com.mbragariano.scheduleadministratorapi.common.groups.Create;
-import org.springframework.validation.annotation.Validated;
+import br.com.mbragariano.gobeautyapi.common.groups.Create;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
