@@ -2,12 +2,11 @@ package br.com.mbragariano.gobeautyapi.modules.specialty.persistence.repositorie
 
 import br.com.mbragariano.gobeautyapi.common.annotations.Adapter;
 import br.com.mbragariano.gobeautyapi.common.exceptions.DataBaseException;
-import br.com.mbragariano.gobeautyapi.modules.specialty.persistence.gateways.CreateSpecialtyGateway;
 import br.com.mbragariano.gobeautyapi.common.utils.messageresolver.MessageResolverUtil;
 import br.com.mbragariano.gobeautyapi.modules.specialty.entities.SpecialtyEntity;
 import br.com.mbragariano.gobeautyapi.modules.specialty.persistence.documents.SpecialtyDocument;
+import br.com.mbragariano.gobeautyapi.modules.specialty.persistence.gateways.SpecialtyGateway;
 import br.com.mbragariano.gobeautyapi.modules.specialty.ports.SpecialtyStorage;
-import br.com.mbragariano.gobeautyapi.modules.specialty.persistence.gateways.FindAllSpecialtiesGateway;
 import com.mongodb.MongoException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -38,7 +37,7 @@ public class SpecialtyMongoDbStorage implements SpecialtyStorage {
 		try {
 			final var specialtyDocuments = this.mongoTemplate.findAll(SpecialtyDocument.class);
 
-			return FindAllSpecialtiesGateway.mapToSpecialtyEntities(specialtyDocuments);
+			return SpecialtyGateway.mapToSpecialtyEntities(specialtyDocuments);
 		} catch (final MongoException mongoException) {
 			mongoException.printStackTrace();
 
@@ -68,7 +67,7 @@ public class SpecialtyMongoDbStorage implements SpecialtyStorage {
 	@Override
 	public void create(final SpecialtyEntity specialtyEntity) {
 		try {
-			final var specialtyDocument = CreateSpecialtyGateway.mapToSpecialtyDocument(specialtyEntity);
+			final var specialtyDocument = SpecialtyGateway.mapToSpecialtyDocument(specialtyEntity);
 
 			this.mongoTemplate.save(specialtyDocument);
 		} catch (final MongoException mongoException) {
