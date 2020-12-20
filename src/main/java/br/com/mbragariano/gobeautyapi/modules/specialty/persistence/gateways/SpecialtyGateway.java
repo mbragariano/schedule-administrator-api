@@ -6,10 +6,17 @@ import br.com.mbragariano.gobeautyapi.modules.specialty.persistence.documents.Sp
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FindAllSpecialtiesGateway {
+public class SpecialtyGateway {
+
+	public static SpecialtyDocument mapToSpecialtyDocument(final SpecialtyEntity specialtyEntity) {
+		return SpecialtyDocument.baseBuilder()
+			.id(specialtyEntity.getId())
+			.name(specialtyEntity.getName())
+			.build();
+	}
 
 	public static List<SpecialtyEntity> mapToSpecialtyEntities(final List<SpecialtyDocument> specialtyDocuments) {
-		return specialtyDocuments.stream().map(FindAllSpecialtiesGateway::mapToSpecialtyEntities).collect(Collectors.toList());
+		return specialtyDocuments.stream().map(SpecialtyGateway::mapToSpecialtyEntities).collect(Collectors.toList());
 	}
 
 	private static SpecialtyEntity mapToSpecialtyEntities(final SpecialtyDocument specialtyDocument) {
