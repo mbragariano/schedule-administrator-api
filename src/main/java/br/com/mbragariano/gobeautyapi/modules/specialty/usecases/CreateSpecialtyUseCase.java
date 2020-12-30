@@ -22,30 +22,28 @@ public class CreateSpecialtyUseCase implements CreateSpecialtyFacade {
 	@Qualifier("specialtyMongoDbStorage")
 	private final SpecialtyStorage specialtyStorage;
 
-	private final MessageResolverUtil messageResolverUtil;
+	private final String VALIDATION_MESSAGE = "Cannot create specialty";
+	private final String VALIDATION_DETAILS = "Entered values are invalid, update theirs by validation message and try again";
 
-	private final String VALIDATION_MESSAGE_CODE = "create-specialty-facade.entity-validation-exception.message";
-	private final String VALIDATION_DETAILS_CODE = "create-specialty-facade.entity-validation-exception.details";
-
-	private final String DUPLICATED_ENTITY_EXCEPTION_MESSAGE_CODE = "create-specialty-facade.duplicated-entity-exception.message";
-	private final String DUPLICATED_ENTITY_EXCEPTION_DETAILS_CODE = "create-specialty-facade.duplicated-entity-exception.details";
+	private final String DUPLICATED_ENTITY_MESSAGE = "Duplicated specialty by name";
+	private final String DUPLICATED_ENTITY_DETAILS = "There is already a specialty registered with that name";
 
 	@Override
 	public void execute(final CreateSpecialtyDto createSpecialtyDto) {
 		final var existsByName = this.specialtyStorage.existsByName(createSpecialtyDto.name);
 
 		if (existsByName)
-			throw new DuplicatedEntityException(
-				this.messageResolverUtil.resolveMessageWithoutParams(DUPLICATED_ENTITY_EXCEPTION_MESSAGE_CODE),
-				this.messageResolverUtil.resolveMessageWithoutParams(DUPLICATED_ENTITY_EXCEPTION_DETAILS_CODE),
-				null
-			);
+			throw new DuplicatedEntityException(DUPLICATED_ENTITY_MESSAGE, DUPLICATED_ENTITY_DETAILS, null);
 
 		final var specialtyEntity = CreateSpecialtyMapper.mapToSpecialtyEntity(createSpecialtyDto);
 
-		this.validationUtil.validate(specialtyEntity, new ValidationUtilMessages(VALIDATION_MESSAGE_CODE, VALIDATION_DETAILS_CODE), Create.class);
+		this.validationUtil.validate(specialtyEntity, this.getValidationUtilMessages(), Create.class);
 
 		this.specialtyStorage.create(specialtyEntity);
+	}
+
+	private ValidationUtilMessages getValidationUtilMessages() {
+		return new ValidationUtilMessages(VALIDATION_MESSAGE, VALIDATION_DETAILS);
 	}
 
 }

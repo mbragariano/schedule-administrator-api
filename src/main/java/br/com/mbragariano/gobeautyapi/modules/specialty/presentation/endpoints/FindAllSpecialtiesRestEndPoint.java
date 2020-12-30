@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestEndPoint
 @RequiredArgsConstructor
-public class FindAllSpecialtiesEndPoint {
+public class FindAllSpecialtiesRestEndPoint {
 
 	private final FindAllSpecialtiesFacade findAllSpecialtiesFacade;
 
