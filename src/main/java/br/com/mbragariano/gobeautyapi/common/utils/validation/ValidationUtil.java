@@ -13,15 +13,13 @@ public class ValidationUtil {
 
 	private final Validator validator;
 
-	private final MessageResolverUtil messageResolverUtil;
-
 	public void validate(final Object object, final ValidationUtilMessages validationUtilMessages, final Class... groups) {
 		final var validationResult = this.validator.validate(object, groups);
 
 		if (!validationResult.isEmpty())
 			throw new EntityValidationException(
-				this.messageResolverUtil.resolveMessageWithoutParams(validationUtilMessages.message),
-				this.messageResolverUtil.resolveMessageWithoutParams(validationUtilMessages.details),
+				validationUtilMessages.message,
+				validationUtilMessages.details,
 				null,
 				ValidationUtilMapper.mapToEntityValidations(validationResult)
 			);

@@ -1,13 +1,11 @@
 package br.com.mbragariano.common.utils.validation;
 
-import br.com.mbragariano.common.utils.validation.configuration.MessageResolverPortTestConfiguration;
 import br.com.mbragariano.common.utils.validation.data.ImplValidationData;
 import br.com.mbragariano.common.utils.validation.data.TokenValidationData;
 import br.com.mbragariano.gobeautyapi.common.configurations.MessageSourceConfiguration;
 import br.com.mbragariano.gobeautyapi.common.configurations.ValidatorConfiguration;
 import br.com.mbragariano.gobeautyapi.common.exceptions.EntityValidationException;
 import br.com.mbragariano.gobeautyapi.common.groups.Create;
-import br.com.mbragariano.gobeautyapi.common.utils.messageresolver.MessageResolverUtil;
 import br.com.mbragariano.gobeautyapi.common.utils.validation.ValidationUtil;
 import br.com.mbragariano.gobeautyapi.common.utils.validation.ValidationUtilMessages;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +23,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {
-	MessageResolverPortTestConfiguration.class,
 	MessageSourceConfiguration.class,
 	ValidatorConfiguration.class
 })
@@ -34,14 +31,11 @@ public class ValidationUtilTest {
 	@Autowired
 	private Validator validator;
 
-	@Autowired
-	private MessageResolverUtil messageResolverUtil;
-
 	private ValidationUtil validationUtil;
 
 	@BeforeEach
 	public void beforeEach() {
-		this.validationUtil = new ValidationUtil(this.validator, this.messageResolverUtil);
+		this.validationUtil = new ValidationUtil(this.validator);
 	}
 
 	@Test
