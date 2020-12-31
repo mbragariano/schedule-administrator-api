@@ -2,20 +2,20 @@ package br.com.mbragariano.gobeautyapi.modules.service.entities;
 
 import br.com.mbragariano.gobeautyapi.common.entities.BaseEntity;
 import br.com.mbragariano.gobeautyapi.common.groups.Create;
-import lombok.Builder;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.ToString;
 
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
-@Data
 @NoArgsConstructor
+@ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 public abstract class ServiceEntity extends BaseEntity {
 
+	@Getter
 	@NotBlank(groups = Create.class)
 	private String name;
 
