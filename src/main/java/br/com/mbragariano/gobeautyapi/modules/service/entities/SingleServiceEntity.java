@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-import lombok.experimental.SuperBuilder;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
@@ -24,7 +23,7 @@ public class SingleServiceEntity extends ServiceEntity {
 	@NotNull(groups = Create.class)
 	private SpecialtyEntity specialty;
 
-	@Builder
+	@Builder(builderMethodName = "baseBuilder")
 	public SingleServiceEntity(
 		final String id,
 		final String name,
