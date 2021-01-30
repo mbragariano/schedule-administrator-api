@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 
 @RestEndPoint
 @RequiredArgsConstructor
-public class CreateServiceRestEndPoint {
+public class CreateServiceEndPoint {
 
 	private final List<CreateServiceHandler> createServiceHandlers;
 
