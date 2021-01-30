@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RestEndPoint
 @RequiredArgsConstructor
-public class CreateSpecialtyRestEndPoint {
+public class CreateSpecialtyEndPoint {
 
 	@Qualifier("createSpecialtyUseCase")
 	private final CreateSpecialtyFacade createSpecialtyFacade;
