@@ -1,10 +1,12 @@
 package br.com.mbragariano.gobeautyapi.common.presentation.exceptionhandler.models.responses;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 @Builder
+@ApiModel
 @AllArgsConstructor
 public class BaseExceptionResponse {
 
