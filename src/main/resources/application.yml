@@ -4,3 +4,7 @@ server:
 spring:
   application:
     name: go-beauty-api
+springfox:
+  documentation:
+    swagger:
+      use-model-v3: false
