@@ -5,16 +5,20 @@ name: Java CI with Gradle
 
 on:
   pull_request:
-    branches: [ master ]
+    branches:
+     - master
+     - staging
   push:
     branches:
-      - feature/*
-      - recycle/*
       - bug/*
+      - master
+      - staging
+      - recycle/*
+      - feature/*
 
 jobs:
   build:
-
+    name: Build Artifact
     runs-on: ubuntu-latest
 
     steps:
@@ -25,10 +29,7 @@ jobs:
       with:
         java-version: 11.0.9
 
-    - name: Rebase master
-      run: git rebase origin/master
-
-    - name: Grant execute permission for gradlew
+    - name: Permission for gradlew
       run: chmod +x gradlew
 
     - name: Build with Gradle
