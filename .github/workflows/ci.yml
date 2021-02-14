@@ -10,9 +10,7 @@ on:
      - staging
   push:
     branches:
-      - bug/*
-      - recycle/*
-      - feature/*
+      - staging
 
 jobs:
   build:
